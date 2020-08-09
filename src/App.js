@@ -1,19 +1,24 @@
 // import { StatusBar } from "expo-status-bar"
-import React from "react"
-import { StyleSheet, ScrollView, Keyboard, TouchableWithoutFeedback, Text } from "react-native"
-import StartScreen from "./components/screens/StartScreen"
+import React, { useState } from "react"
+import { StyleSheet, ScrollView, Keyboard, TouchableWithoutFeedback } from "react-native"
+import StartScreen from "./screens/StartScreen"
+
+import { createStore } from "redux"
+import reducers from "./state/reducers"
+import { Provider } from "react-redux"
+
+const store = createStore(reducers)
 
 export default function App() {
-  let content
-  content = <StartScreen />
-
   return (
     // TODO: TouchableWithoutFeedback causing user to press button twice to add url, not good UX STILL ON QS CHECK ?
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <ScrollView style={styles.container}>
-        <StartScreen />
-      </ScrollView>
-    </TouchableWithoutFeedback>
+    <Provider store={store}>
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        <ScrollView style={styles.container}>
+          <StartScreen />
+        </ScrollView>
+      </TouchableWithoutFeedback>
+    </Provider>
   )
 }
 
