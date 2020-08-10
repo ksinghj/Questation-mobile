@@ -1,23 +1,29 @@
+import "react-native-gesture-handler"
+import { NavigationContainer } from "@react-navigation/native"
+import { createStackNavigator } from "@react-navigation/stack"
 // import { StatusBar } from "expo-status-bar"
-import React, { useState } from "react"
-import { StyleSheet, ScrollView, Keyboard, TouchableWithoutFeedback } from "react-native"
+import * as React from "react"
+import { StyleSheet, TouchableWithoutFeedback, ScrollView } from "react-native"
 import StartScreen from "./screens/StartScreen"
 
 import { createStore } from "redux"
 import reducers from "./state/reducers"
 import { Provider } from "react-redux"
+import QuestionCreateScreen from "./screens/QuestionCreateScreen"
 
 const store = createStore(reducers)
+const Stack = createStackNavigator()
 
 export default function App() {
   return (
     // TODO: TouchableWithoutFeedback causing user to press button twice to add url, not good UX STILL ON QS CHECK ?
     <Provider store={store}>
-      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        <ScrollView style={styles.container}>
-          <StartScreen />
-        </ScrollView>
-      </TouchableWithoutFeedback>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Start" component={StartScreen} />
+          <Stack.Screen name="Create your questions" component={QuestionCreateScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   )
 }
@@ -25,7 +31,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 40,
-    marginHorizontal: 20,
+    paddingTop: 40,
+    paddingHorizontal: 20,
+    backgroundColor: "#fff",
   },
 })

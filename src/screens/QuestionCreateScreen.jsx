@@ -1,9 +1,9 @@
 import React from "react"
 import { View, Text, StyleSheet, Button } from "react-native"
 
-const QuestionCreateScreen = () => (
+const QuestionCreateScreen = ({ navigation }) => (
   <View style={styles.container}>
-    <Button onPress={() => console.log("go back to start pressed")} title="Go Back"></Button>
+    <Button onPress={() => navigation.navigate("Start")} title="Go Back"></Button>
     <Text>QuestionCreateScreen</Text>
   </View>
 )

@@ -1,33 +1,35 @@
 import React from "react"
-import { connect } from "react-redux"
-import { View, StyleSheet, Image, Button } from "react-native"
-import { changeScreen } from "../state/actions"
+import { View, StyleSheet, Image, Button, TouchableWithoutFeedback, ScrollView } from "react-native"
 
-const StartScreen = props => (
-  <View style={styles.container}>
-    <View>
-      <View style={styles.logoContainer}>
-        <Image source={require("../assets/questation-logo.png")} style={styles.logo} />
+const StartScreen = ({ navigation }) => (
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    <ScrollView style={styles.container}>
+      <View style={styles.container}>
+        <View>
+          <View style={styles.logoContainer}>
+            <Image source={require("../assets/questation-logo.png")} style={styles.logo} />
+          </View>
+          <View style={styles.buttons}>
+            <Button
+              onPress={() => navigation.navigate("Create your questions")}
+              title="Start"
+            ></Button>
+            <Button title="More"></Button>
+          </View>
+        </View>
       </View>
-      <View style={styles.buttons}>
-        <Button title="Start" onPress={changeScreen("QuestionCreateScreen")}></Button>
-        <Button title="More"></Button>
-      </View>
-    </View>
-  </View>
+    </ScrollView>
+  </TouchableWithoutFeedback>
 )
 
-const mapStateToProps = state => {
-  return { screenReducer: state.screenReducer }
-}
-
-export default connect(mapStateToProps, { changeScreen })(StartScreen)
+export default StartScreen
 
 const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "column",
-    marginVertical: 100,
+    paddingVertical: 80,
+    backgroundColor: "#fff",
   },
   logoContainer: {
     alignItems: "center",
