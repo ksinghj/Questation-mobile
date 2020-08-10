@@ -10,6 +10,7 @@ import { createStore } from "redux"
 import reducers from "./state/reducers"
 import { Provider } from "react-redux"
 import QuestionCreateScreen from "./screens/QuestionCreateScreen"
+import MoreScreen from "./screens/MoreScreen"
 
 const store = createStore(reducers)
 const Stack = createStackNavigator()
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Start" component={StartScreen} />
           <Stack.Screen name="Create your questions" component={QuestionCreateScreen} />
+          <Stack.Screen name="More" component={MoreScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

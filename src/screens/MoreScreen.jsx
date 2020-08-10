@@ -1,17 +1,14 @@
 import React from "react"
 import { View, Text, StyleSheet, Button } from "react-native"
 
-const QuestionCreateScreen = ({ navigation }) => (
+const MoreScreen = ({ navigation }) => (
   <View style={styles.container}>
     <Button onPress={() => navigation.navigate("Start")} title="Go Back"></Button>
-    <Text>Questation only allows 5 questions for now. Ommit all commas.</Text>
-    <Text>
-      Warning: After pressing continue you won't be able to edit your questions, so double check!
-    </Text>
+    <Text>MoreScreen</Text>
   </View>
 )
 
-export default QuestionCreateScreen
+export default MoreScreen
 
 const styles = StyleSheet.create({
   container: {

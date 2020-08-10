@@ -14,7 +14,7 @@ const StartScreen = ({ navigation }) => (
               onPress={() => navigation.navigate("Create your questions")}
               title="Start"
             ></Button>
-            <Button title="More"></Button>
+            <Button onPress={() => navigation.navigate("More")} title="More"></Button>
           </View>
         </View>
       </View>
