@@ -48,20 +48,10 @@ const answersReducer = (state = [], action) => {
   }
 }
 
-const screenReducer = (state = "StartScreen", action) => {
-  switch (action.type) {
-    case "CHANGE_SCREEN":
-      return (state = action.payload)
-    default:
-      return state
-  }
-}
-
 export default combineReducers({
   questionReducer,
   goBackClicked,
   studentsReducer,
   classReducer,
   answersReducer,
-  screenReducer,
 })

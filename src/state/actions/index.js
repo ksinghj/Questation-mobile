@@ -46,10 +46,3 @@ export const answers = evaldArr => {
     payload: evaldArr,
   }
 }
-
-export const changeScreen = screen => {
-  return {
-    type: "CHANGE_SCREEN",
-    payload: screen,
-  }
-}

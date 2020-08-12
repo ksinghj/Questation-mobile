@@ -1,5 +1,6 @@
 import React from "react"
 import { View, StyleSheet, Image, Button, TouchableWithoutFeedback, ScrollView } from "react-native"
+import QSButton from "../components/QSButton"
 
 const StartScreen = ({ navigation }) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -10,11 +11,11 @@ const StartScreen = ({ navigation }) => (
             <Image source={require("../assets/questation-logo.png")} style={styles.logo} />
           </View>
           <View style={styles.buttons}>
-            <Button
-              onPress={() => navigation.navigate("Create your questions")}
+            <QSButton
+              onPressFunction={() => navigation.navigate("Create your questions")}
               title="Start"
-            ></Button>
-            <Button onPress={() => navigation.navigate("More")} title="More"></Button>
+            />
+            <QSButton onPressFunction={() => navigation.navigate("More")} title="More" />
           </View>
         </View>
       </View>
