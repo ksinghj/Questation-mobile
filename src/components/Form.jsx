@@ -10,17 +10,15 @@ import QSButton from "../components/QSButton"
 // const questions = useSelector(state => state.questionReducer.questions)
 
 const Form = () => {
-  const dispatch = useDispatch()
-  const counter = useSelector(state => state.counter)
-
   // Form state
-  const [question1, setQuestion1] = useState(null)
-  const [question2, setQuestion2] = useState(null)
-  const [question3, setQuestion3] = useState(null)
-  const [question4, setQuestion4] = useState(null)
-  const [question5, setQuestion5] = useState(null)
+  const [question1, setQuestion1] = useState("")
+  const [question2, setQuestion2] = useState("")
+  const [question3, setQuestion3] = useState("")
+  const [question4, setQuestion4] = useState("")
+  const [question5, setQuestion5] = useState("")
 
   // TODO: submit questions as to reducer as one (like QS web)
+  // example setQuestionSheet([question1, question2, ...])
 
   return (
     <View style={styles.container}>
@@ -28,12 +26,12 @@ const Form = () => {
         <TextInput
           placeholder="328 + 10 / 2"
           style={styles.questionInput}
-          onChangeText={setQuestion1}
+          onChangeText={q => setQuestion1(q)}
         />
-        <TextInput style={styles.questionInput} onChangeText={setQuestion2} />
-        <TextInput style={styles.questionInput} onChangeText={setQuestion3} />
-        <TextInput style={styles.questionInput} onChangeText={setQuestion4} />
-        <TextInput style={styles.questionInput} onChangeText={setQuestion5} />
+        <TextInput style={styles.questionInput} onChangeText={q => setQuestion2(q)} />
+        <TextInput style={styles.questionInput} onChangeText={q => setQuestion3(q)} />
+        <TextInput style={styles.questionInput} onChangeText={q => setQuestion4(q)} />
+        <TextInput style={styles.questionInput} onChangeText={q => setQuestion5(q)} />
       </View>
       <QSButton title="Continue" />
     </View>
@@ -64,6 +62,9 @@ const styles = StyleSheet.create({
 })
 
 // redux hooks example:
+// const dispatch = useDispatch()
+// const counter = useSelector(state => state.counter)
+
 // <View>
 //  <Text>Counter: {counter.counter}</Text>
 //  <QSButton onPressFunction={() => dispatch({ type: "INCREMENT" })} title="Increment" />

@@ -2,8 +2,8 @@ import React from "react"
 import { View, StyleSheet, Button } from "react-native"
 import colors from "../constants/colors"
 
-const QSButton = ({ onPressFunction, title }) => (
-  <View style={styles.container}>
+const QSButton = ({ onPressFunction, title, style }) => (
+  <View style={{ ...styles.container, ...style }}>
     <Button
       onPress={onPressFunction}
       title={title}
