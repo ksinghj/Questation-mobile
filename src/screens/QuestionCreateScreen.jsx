@@ -1,10 +1,10 @@
 import React from "react"
-import { View, Text, StyleSheet, Button } from "react-native"
+import { View, Text, StyleSheet, Button, ScrollView } from "react-native"
 import Textarea from "../components/Textarea"
 import Form from "../components/Form"
 
 const QuestionCreateScreen = () => (
-  <View style={styles.container}>
+  <ScrollView style={styles.container}>
     <Textarea
       texts={[
         "Questation only allows 5 questions for now. Ommit all commas.",
@@ -12,7 +12,7 @@ const QuestionCreateScreen = () => (
       ]}
     />
     <Form />
-  </View>
+  </ScrollView>
 )
 
 export default QuestionCreateScreen
