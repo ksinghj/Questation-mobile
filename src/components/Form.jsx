@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native"
 import React, { useState } from "react"
 import { View, Text, StyleSheet, Button, TextInput } from "react-native"
 import { connect, useSelector, useDispatch } from "react-redux"
@@ -9,7 +10,9 @@ import QSButton from "../components/QSButton"
 // const dispatch = useDispatch()
 // const questions = useSelector(state => state.questionReducer.questions)
 
-const Form = () => {
+const Form = ({ screenName }) => {
+  // Access the navigation prop from any component
+  const navigation = useNavigation()
   // Form state
   const [question1, setQuestion1] = useState("")
   const [question2, setQuestion2] = useState("")
@@ -33,7 +36,10 @@ const Form = () => {
         <TextInput style={styles.questionInput} onChangeText={q => setQuestion4(q)} />
         <TextInput style={styles.questionInput} onChangeText={q => setQuestion5(q)} />
       </View>
-      <QSButton title="Continue" />
+      <QSButton
+        onPressFunction={() => navigation.navigate("Review question sheet")}
+        title="Continue"
+      />
     </View>
   )
 }

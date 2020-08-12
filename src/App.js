@@ -11,6 +11,7 @@ import reducers from "./state/reducers"
 import { Provider } from "react-redux"
 import QuestionCreateScreen from "./screens/QuestionCreateScreen"
 import MoreScreen from "./screens/MoreScreen"
+import ReviewSheetScreen from "./screens/ReviewSheetScreen"
 
 const store = createStore(reducers)
 const Stack = createStackNavigator()
@@ -22,8 +23,9 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Start" component={StartScreen} />
-          <Stack.Screen name="Create your questions" component={QuestionCreateScreen} />
           <Stack.Screen name="More" component={MoreScreen} />
+          <Stack.Screen name="Create your questions" component={QuestionCreateScreen} />
+          <Stack.Screen name="Review question sheet" component={ReviewSheetScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
