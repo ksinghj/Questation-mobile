@@ -1,26 +1,24 @@
 import React from "react"
-import { View, StyleSheet, Image, Button, TouchableWithoutFeedback, ScrollView } from "react-native"
+import { View, StyleSheet, Image, Button, ScrollView } from "react-native"
 import QSButton from "../components/QSButton"
 
 const StartScreen = ({ navigation }) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    <ScrollView style={styles.container}>
-      <View style={styles.container}>
-        <View>
-          <View style={styles.logoContainer}>
-            <Image source={require("../assets/questation-logo.png")} style={styles.logo} />
-          </View>
-          <View style={styles.buttons}>
-            <QSButton
-              onPressFunction={() => navigation.navigate("Create your questions")}
-              title="Start"
-            />
-            <QSButton onPressFunction={() => navigation.navigate("More")} title="More" />
-          </View>
+  <ScrollView style={styles.container}>
+    <View style={styles.container}>
+      <View>
+        <View style={styles.logoContainer}>
+          <Image source={require("../assets/questation-logo.png")} style={styles.logo} />
+        </View>
+        <View style={styles.buttons}>
+          <QSButton
+            onPressFunction={() => navigation.navigate("Create your questions")}
+            title="Start"
+          />
+          <QSButton onPressFunction={() => navigation.navigate("More")} title="More" />
         </View>
       </View>
-    </ScrollView>
-  </TouchableWithoutFeedback>
+    </View>
+  </ScrollView>
 )
 
 export default StartScreen

@@ -1,11 +1,4 @@
-import {
-  CREATE_QUESTION,
-  GO_BACK,
-  CONTINUE,
-  ENTER_STUDENTS,
-  CREATE_A_CLASS,
-  CHANGE_SCREEN,
-} from "./types"
+import { CREATE_QUESTION, GO_BACK, CONTINUE, ENTER_STUDENTS, CREATE_A_CLASS } from "./types"
 
 export const createQuestionSheet = inputs => {
   return {

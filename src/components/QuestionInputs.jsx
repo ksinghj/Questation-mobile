@@ -1,18 +1,21 @@
 import React from "react"
-import { View, Text, StyleSheet, TextInput } from "react-native"
+import { View, Text, StyleSheet, TextInput, TouchableWithoutFeedback, Keyboard } from "react-native"
+// TODO: fix keyboad dismiss not working
 
 const QuestionInputs = props => (
-  <View style={styles.container}>
-    {props.texts.map(text => {
-      return (
-        <View style={styles.block}>
-          <Text style={styles.text} key={text}>
-            {text}
-          </Text>
-        </View>
-      )
-    })}
-  </View>
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    <View style={styles.container}>
+      {props.texts.map(text => {
+        return (
+          <View style={styles.block}>
+            <Text style={styles.text} key={text}>
+              {text}
+            </Text>
+          </View>
+        )
+      })}
+    </View>
+  </TouchableWithoutFeedback>
 )
 
 export default QuestionInputs

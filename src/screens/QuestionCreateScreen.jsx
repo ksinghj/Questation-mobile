@@ -1,7 +1,7 @@
 import React from "react"
 import { View, Text, StyleSheet, Button } from "react-native"
 import Textarea from "../components/Textarea"
-import QSButton from "../components/QSButton"
+import Form from "../components/Form"
 
 const QuestionCreateScreen = () => (
   <View style={styles.container}>
@@ -11,7 +11,7 @@ const QuestionCreateScreen = () => (
         "Warning: After pressing continue you won't be able to edit your questions, so double check!",
       ]}
     />
-    <QSButton title="Continue" />
+    <Form />
   </View>
 )
 
