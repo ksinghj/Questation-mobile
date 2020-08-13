@@ -6,7 +6,8 @@ import * as React from "react"
 import { StyleSheet, TouchableWithoutFeedback, ScrollView } from "react-native"
 import StartScreen from "./screens/StartScreen"
 
-import { createStore, compose } from "redux"
+import { createStore, compose, applyMiddleware } from "redux"
+import thunk from "redux-thunk"
 import reducers from "./state/reducers"
 import { Provider } from "react-redux"
 import QuestionCreateScreen from "./screens/QuestionCreateScreen"
@@ -16,11 +17,9 @@ import ReviewSheetScreen from "./screens/ReviewSheetScreen"
 // const store = createStore(reducers)
 const store = createStore(
   reducers,
-  compose(
-    // applyMiddleware(thunk),
-    // redux dev tools
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  // redux dev tools
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  compose(applyMiddleware(thunk))
 )
 
 const Stack = createStackNavigator()
