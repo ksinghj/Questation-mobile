@@ -10,7 +10,7 @@ import QSButton from "../components/QSButton"
 // const dispatch = useDispatch()
 // const questions = useSelector(state => state.questionReducer.questions)
 
-const Form = ({ screenName }) => {
+const Form = () => {
   // Access the navigation prop from any component
   const navigation = useNavigation()
   // Form state
@@ -19,6 +19,8 @@ const Form = ({ screenName }) => {
   const [question3, setQuestion3] = useState("")
   const [question4, setQuestion4] = useState("")
   const [question5, setQuestion5] = useState("")
+
+  const [questionSheet, setQuestionSheet] = useState({})
 
   // TODO: submit questions as to reducer as one (like QS web)
   // example setQuestionSheet([question1, question2, ...])
@@ -37,7 +39,11 @@ const Form = ({ screenName }) => {
         <TextInput style={styles.questionInput} onChangeText={q => setQuestion5(q)} />
       </View>
       <QSButton
-        onPressFunction={() => navigation.navigate("Review question sheet")}
+        onPressFunction={() => {
+          setQuestionSheet(question1, question2, question3, question4, question5)
+          console.log(questionSheet)
+          navigation.navigate("Review question sheet")
+        }}
         title="Continue"
       />
     </View>

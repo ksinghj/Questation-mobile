@@ -1,4 +1,11 @@
-import { CREATE_QUESTION, GO_BACK, CONTINUE, ENTER_STUDENTS, CREATE_A_CLASS } from "./types"
+import {
+  CREATE_QUESTION,
+  GO_BACK,
+  CONTINUE,
+  ENTER_STUDENTS,
+  CREATE_A_CLASS,
+  ANSWERS,
+} from "./types"
 
 export const createQuestionSheet = inputs => {
   return {
@@ -35,7 +42,7 @@ export const createAClass = questions => {
 
 export const answers = evaldArr => {
   return {
-    type: "ANSWERS",
+    type: ANSWERS,
     payload: evaldArr,
   }
 }
