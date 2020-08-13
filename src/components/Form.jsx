@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native"
-import React, { useState } from "react"
-import { View, Text, StyleSheet, Button, TextInput } from "react-native"
+import React, { useState, useEffect } from "react"
+import { View, Text, StyleSheet, TextInput } from "react-native"
 import { connect, useSelector, useDispatch } from "react-redux"
-import { createQuestionSheet, clickContinue } from "../state/actions"
+import { createQuestionSheet } from "../state/actions"
 import QSButton from "../components/QSButton"
 
 // TODO:
@@ -13,6 +13,8 @@ import QSButton from "../components/QSButton"
 const Form = () => {
   // Access the navigation prop from any component
   const navigation = useNavigation()
+
+  const dispatch = useDispatch()
   // Form state
   const [question1, setQuestion1] = useState("")
   const [question2, setQuestion2] = useState("")
@@ -20,10 +22,34 @@ const Form = () => {
   const [question4, setQuestion4] = useState("")
   const [question5, setQuestion5] = useState("")
 
-  const [questionSheet, setQuestionSheet] = useState({})
+  const [questionSheet, setQuestionSheet] = useState({
+    question1,
+    question2,
+    question3,
+    question4,
+    question5,
+  })
+  // could be that q's are not updating first try
+  // try console logging questions 1 2 etc again
+  useEffect(() => {
+    setQuestion1(question1)
+  }, [question1])
+  useEffect(() => {
+    setQuestion2(question2)
+  }, [question2])
+  useEffect(() => {
+    setQuestion3(question3)
+  }, [question3])
+  useEffect(() => {
+    setQuestion4(question4)
+  }, [question4])
+  useEffect(() => {
+    setQuestion5(question5)
+  }, [question5])
 
-  // TODO: submit questions as to reducer as one (like QS web)
-  // example setQuestionSheet([question1, question2, ...])
+  useEffect(() => {
+    setQuestionSheet(questionSheet)
+  }, [questionSheet])
 
   return (
     <View style={styles.container}>
@@ -40,8 +66,9 @@ const Form = () => {
       </View>
       <QSButton
         onPressFunction={() => {
-          setQuestionSheet(question1, question2, question3, question4, question5)
+          setQuestionSheet({ question1, question2, question3, question4, question5 })
           console.log(questionSheet)
+          dispatch(createQuestionSheet(questionSheet))
           navigation.navigate("Review question sheet")
         }}
         title="Continue"
@@ -53,12 +80,11 @@ const Form = () => {
 const mapStateToProps = state => {
   return {
     counter: state.counter,
-    goBackClicked: state.goBackClicked,
-    questions: state.questionReducer.questions, // is needed?
+    questions: state.questionReducer.questions,
   }
 }
 
-export default connect(mapStateToProps, { createQuestionSheet, clickContinue })(Form)
+export default connect(mapStateToProps, { createQuestionSheet })(Form)
 
 const styles = StyleSheet.create({
   container: {
