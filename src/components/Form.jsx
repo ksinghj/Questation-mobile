@@ -30,25 +30,38 @@ const Form = () => {
     question5,
   })
 
+  // TODO: fix this - surely there's a cleaner solution!!! =>
+  // update question and sheet every press - seems
+  // overkill but works 100% of the time
   useEffect(() => {
     setQuestion1(question1)
+    submitSheetToStore()
   }, [question1])
   useEffect(() => {
     setQuestion2(question2)
+    submitSheetToStore()
   }, [question2])
   useEffect(() => {
     setQuestion3(question3)
+    submitSheetToStore()
   }, [question3])
   useEffect(() => {
     setQuestion4(question4)
+    submitSheetToStore()
   }, [question4])
   useEffect(() => {
     setQuestion5(question5)
+    submitSheetToStore()
   }, [question5])
 
   useEffect(() => {
     setQuestionSheet(questionSheet)
   }, [questionSheet])
+
+  const submitSheetToStore = () => {
+    setQuestionSheet({ question1, question2, question3, question4, question5 })
+    dispatch(createQuestionSheet(questionSheet))
+  }
 
   return (
     <View style={styles.container}>
@@ -64,14 +77,8 @@ const Form = () => {
         <TextInput style={styles.questionInput} onChangeText={q => setQuestion5(q)} />
       </View>
       <QSButton
-        onPressFunction={async () => {
-          await setQuestionSheet({ question1, question2, question3, question4, question5 })
-          await dispatch(createQuestionSheet(questionSheet))
-        }}
-        title="setState"
-      />
-      <QSButton
         onPressFunction={() => {
+          submitSheetToStore()
           navigation.navigate("Review question sheet")
           console.log("form:", questionSheet)
         }}
@@ -95,13 +102,3 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
 })
-
-// redux hooks example:
-// const dispatch = useDispatch()
-// const counter = useSelector(state => state.counter)
-
-// <View>
-//  <Text>Counter: {counter.counter}</Text>
-//  <QSButton onPressFunction={() => dispatch({ type: "INCREMENT" })} title="Increment" />
-//  <QSButton onPressFunction={() => dispatch({ type: "DECREMENT" })} title="Decrement" />
-// </View>
