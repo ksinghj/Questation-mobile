@@ -29,8 +29,7 @@ const Form = () => {
     question4,
     question5,
   })
-  // could be that q's are not updating first try
-  // try console logging questions 1 2 etc again
+
   useEffect(() => {
     setQuestion1(question1)
   }, [question1])
@@ -65,11 +64,16 @@ const Form = () => {
         <TextInput style={styles.questionInput} onChangeText={q => setQuestion5(q)} />
       </View>
       <QSButton
+        onPressFunction={async () => {
+          await setQuestionSheet({ question1, question2, question3, question4, question5 })
+          await dispatch(createQuestionSheet(questionSheet))
+        }}
+        title="setState"
+      />
+      <QSButton
         onPressFunction={() => {
-          setQuestionSheet({ question1, question2, question3, question4, question5 })
-          console.log(questionSheet)
-          dispatch(createQuestionSheet(questionSheet))
           navigation.navigate("Review question sheet")
+          console.log("form:", questionSheet)
         }}
         title="Continue"
       />
@@ -77,14 +81,7 @@ const Form = () => {
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    counter: state.counter,
-    questions: state.questionReducer.questions,
-  }
-}
-
-export default connect(mapStateToProps, { createQuestionSheet })(Form)
+export default connect(null, { createQuestionSheet })(Form)
 
 const styles = StyleSheet.create({
   container: {
