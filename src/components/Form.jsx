@@ -5,10 +5,7 @@ import { connect, useSelector, useDispatch } from "react-redux"
 import { createQuestionSheet } from "../state/actions"
 import QSButton from "../components/QSButton"
 
-// TODO:
-// - still use hooks for question state but as 5 use useSelector
-// const dispatch = useDispatch()
-// const questions = useSelector(state => state.questionReducer.questions)
+// TODO: Make Form component more modular (for practice not necessarily needed)
 
 const Form = () => {
   // Access the navigation prop from any component
@@ -32,7 +29,7 @@ const Form = () => {
 
   // TODO: fix this - surely there's a cleaner solution!!! =>
   // update question and sheet every press - seems
-  // overkill but works 100% of the time
+  // overkill but works 100% of the time (MVP OK for now)
   useEffect(() => {
     setQuestion1(question1)
     submitSheetToStore()
@@ -80,7 +77,7 @@ const Form = () => {
         onPressFunction={() => {
           submitSheetToStore()
           navigation.navigate("Review question sheet")
-          console.log("form:", questionSheet)
+          // console.log("form:", questionSheet)
         }}
         title="Continue"
       />

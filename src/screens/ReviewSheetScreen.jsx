@@ -2,6 +2,7 @@ import React from "react"
 import { View, StyleSheet, Text, Button, ScrollView } from "react-native"
 // import QSButton from "../components/QSButton"
 import { useSelector, connect } from "react-redux"
+import fontSizes from "../constants/fontSizes"
 
 const ReviewSheetScreen = () => {
   const questionSheet = useSelector(state => state.questionReducer.questions)
@@ -10,8 +11,8 @@ const ReviewSheetScreen = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container}>
-        <Text>ReviewSheetScreen</Text>
-        <Text>Q1:</Text>
+        <Text style={styles.textHeader}>Does this look right?</Text>
+        <Text>Q1:{questionSheet.question1}</Text>
       </View>
     </ScrollView>
   )
@@ -28,5 +29,10 @@ const mapStateToProps = state => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+  },
+  textHeader: {
+    textAlign: "center",
+    marginVertical: 5,
+    fontSize: fontSizes.headerText,
   },
 })
