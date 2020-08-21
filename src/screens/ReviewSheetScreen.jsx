@@ -1,6 +1,7 @@
 import React from "react"
 import { View, StyleSheet, Text, Button, ScrollView } from "react-native"
-// import QSButton from "../components/QSButton"
+import QSButton from "../components/QSButton"
+import Sheet from "../components/Sheet"
 import { useSelector, connect } from "react-redux"
 import fontSizes from "../constants/fontSizes"
 
@@ -12,7 +13,7 @@ const ReviewSheetScreen = () => {
     <ScrollView style={styles.container}>
       <View style={styles.container}>
         <Text style={styles.textHeader}>Does this look right?</Text>
-        <Text>Q1:{questionSheet.question1}</Text>
+        <Sheet data={questionSheet} isAnswers={false} />
       </View>
     </ScrollView>
   )
