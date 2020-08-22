@@ -16,6 +16,10 @@ const ReviewSheetScreen = () => {
         <Text style={styles.textHeader}>Does this look right?</Text>
         <Sheet data={questionSheet} isAnswers={false} />
       </View>
+      {
+        // NumberInput
+      }
+      <QSButton title={"Generate sheets for class"} />
     </ScrollView>
   )
 }

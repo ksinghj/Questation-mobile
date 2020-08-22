@@ -13,6 +13,7 @@ import { Provider } from "react-redux"
 import QuestionCreateScreen from "./screens/QuestionCreateScreen"
 import MoreScreen from "./screens/MoreScreen"
 import ReviewSheetScreen from "./screens/ReviewSheetScreen"
+import QuestionSheets from "./screens/QuestionSheets"
 
 // const store = createStore(reducers)
 const store = createStore(
@@ -33,6 +34,7 @@ export default function App() {
           <Stack.Screen name="More" component={MoreScreen} />
           <Stack.Screen name="Create your questions" component={QuestionCreateScreen} />
           <Stack.Screen name="Review question sheet" component={ReviewSheetScreen} />
+          <Stack.Screen name="Class sheets" component={QuestionSheets} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
