@@ -1,6 +1,6 @@
 import React from "react"
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard } from "react-native"
-import fontSizes from "../constants/fontSizes"
+import font from "../constants/font"
 
 const QuestionInputs = props => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontSize: fontSizes.main,
+    fontSize: font.fontSizes.main,
   },
 })

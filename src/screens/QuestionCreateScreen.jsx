@@ -2,6 +2,7 @@ import React from "react"
 import { View, Text, StyleSheet, Button, ScrollView } from "react-native"
 import Textarea from "../components/Textarea"
 import Form from "../components/Form"
+import colors from "../constants/colors"
 
 const QuestionCreateScreen = () => (
   <ScrollView style={styles.container}>
@@ -15,5 +16,6 @@ export default QuestionCreateScreen
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    backgroundColor: colors.background,
   },
 })

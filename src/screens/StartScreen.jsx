@@ -1,6 +1,7 @@
 import React from "react"
 import { View, StyleSheet, Image, Button, ScrollView } from "react-native"
 import QSButton from "../components/QSButton"
+import colors from "../constants/colors"
 
 const StartScreen = ({ navigation }) => (
   <ScrollView style={styles.container}>
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     paddingVertical: 80,
-    backgroundColor: "#fff",
+    backgroundColor: colors.background,
   },
   logoContainer: {
     alignItems: "center",

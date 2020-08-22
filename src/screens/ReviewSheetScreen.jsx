@@ -3,7 +3,8 @@ import { View, StyleSheet, Text, Button, ScrollView } from "react-native"
 import QSButton from "../components/QSButton"
 import Sheet from "../components/Sheet"
 import { useSelector, connect } from "react-redux"
-import fontSizes from "../constants/fontSizes"
+import font from "../constants/font"
+import colors from "../constants/colors"
 
 const ReviewSheetScreen = () => {
   const questionSheet = useSelector(state => state.questionReducer.questions)
@@ -30,10 +31,11 @@ const mapStateToProps = state => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    backgroundColor: colors.background,
   },
   textHeader: {
     textAlign: "center",
-    marginVertical: 5,
-    fontSize: fontSizes.headerText,
+    marginVertical: 15,
+    fontSize: font.fontSizes.headerText,
   },
 })

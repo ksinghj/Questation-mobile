@@ -1,6 +1,6 @@
 import React from "react"
 import { View, Text, StyleSheet } from "react-native"
-import fontSizes from "../constants/fontSizes"
+import font from "../constants/font"
 
 const Textarea = props => (
   <View style={styles.container}>
@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontSize: fontSizes.headerText,
+    fontSize: font.fontSizes.headerText,
   },
 })
