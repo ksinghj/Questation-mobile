@@ -19,7 +19,7 @@ import QuestionSheets from "./screens/QuestionSheets"
 const store = createStore(
   reducers,
   // redux dev tools
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   compose(applyMiddleware(thunk))
 )
 

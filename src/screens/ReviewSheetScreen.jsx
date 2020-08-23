@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native"
-import React from "react"
+import React, { useState } from "react"
 import { View, StyleSheet, Text, Button, ScrollView } from "react-native"
 import QSButton from "../components/QSButton"
 import Sheet from "../components/Sheet"
@@ -10,9 +10,17 @@ import colors from "../constants/colors"
 
 const ReviewSheetScreen = () => {
   const navigation = useNavigation()
+  const [numberOfSheets, setNumberOfSheets] = useState("")
 
   const questionSheet = useSelector(state => state.questionReducer.questions)
-  console.log("rqs", questionSheet)
+  // console.log("rqs", questionSheet)
+
+  const sheetsHandler = sheets => {
+    // only integers allowed ?
+    // setNumberOfSheets(sheets.replace(/[^0-9]/g, ""))
+    setNumberOfSheets(sheets)
+    console.log("no. of sheets: ", numberOfSheets)
+  }
 
   return (
     <ScrollView style={styles.container}>
@@ -20,9 +28,9 @@ const ReviewSheetScreen = () => {
         <Text style={styles.textHeader}>Does this look right?</Text>
         <Sheet data={questionSheet} isAnswers={false} />
       </View>
-      <NumberInput />
+      <NumberInput onInput={sheetsHandler} />
       <QSButton
-        onPressFunction={navigation.navigate("Class sheets")}
+        onPressFunction={() => navigation.navigate("Class sheets")}
         title={"Generate sheets for class"}
       />
     </ScrollView>
