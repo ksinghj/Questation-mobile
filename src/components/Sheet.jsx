@@ -7,21 +7,23 @@ const Sheet = ({ data, sheetNumber, isAnswers }) => {
   let arrToMap = Object.values(data)
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.header}>
-          {isAnswers ? "Answers" : "Sheet"} {sheetNumber}
-        </Text>
-        <View style={styles.questions}>
-          {arrToMap.map((q, index) => {
-            return (
-              <View key={index + 1}>
-                <View style={styles.line}>
-                  <Text style={styles.qNumber}>{index + 1}.</Text>
-                  <Text style={styles.question}>{q}</Text>
+      <View style={styles.sheet}>
+        <View style={styles.content}>
+          <Text style={styles.header}>
+            {isAnswers ? "Answers" : "Sheet"} {sheetNumber}
+          </Text>
+          <View style={styles.questions}>
+            {arrToMap.map((q, index) => {
+              return (
+                <View key={index + 1}>
+                  <View style={styles.line}>
+                    <Text style={styles.qNumber}>{index + 1}.</Text>
+                    <Text style={styles.question}>{q}</Text>
+                  </View>
                 </View>
-              </View>
-            )
-          })}
+              )
+            })}
+          </View>
         </View>
       </View>
     </View>
@@ -32,14 +34,21 @@ export default Sheet
 
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  sheet: {
     marginVertical: 20,
     borderWidth: 2,
     borderRadius: 5,
-    borderColor: "black",
+    borderColor: "rgba(158, 150, 150, 0.5)",
     backgroundColor: colors.sheet,
+    width: 280,
   },
   content: {
-    margin: 30,
+    marginHorizontal: 30,
+    marginTop: 20,
   },
   header: {
     fontSize: font.fontSizes.headerText,
