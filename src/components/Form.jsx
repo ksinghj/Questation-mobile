@@ -27,7 +27,7 @@ const Form = () => {
     question5,
   })
 
-  // TODO: fix this - surely there's a cleaner solution!!! =>
+  // TODO: fix this - surely there's a cleaner solution!!!...
   // update question and sheet every press - seems
   // overkill but works 100% of the time (MVP OK for now)
   useEffect(() => {
@@ -77,7 +77,6 @@ const Form = () => {
         onPressFunction={() => {
           submitSheetToStore()
           navigation.navigate("Review question sheet")
-          // console.log("form:", questionSheet)
         }}
         title="Continue"
       />

@@ -29,7 +29,7 @@ const goBackClicked = (state = false, action) => {
   }
 }
 
-const studentsReducer = (state = 0, action) => {
+const studentsReducer = (state = 10, action) => {
   switch (action.type) {
     case ENTER_STUDENTS:
       return (state = action.payload)
@@ -55,21 +55,6 @@ const answersReducer = (state = [], action) => {
       return state
   }
 }
-
-// const initialState = {
-//   counter: 0,
-// }
-
-// const counter = (state = initialState, action) => {
-//   switch (action.type) {
-//     case "INCREMENT":
-//       return { counter: state.counter + 1 }
-//     case "DECREMENT":
-//       return { counter: state.counter - 1 }
-//     default:
-//       return state
-//   }
-// }
 
 export default combineReducers({
   questionReducer,
