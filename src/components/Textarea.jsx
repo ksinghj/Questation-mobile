@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   block: {
-    marginVertical: 10,
+    marginVertical: 5,
   },
   text: {
     textAlign: "center",

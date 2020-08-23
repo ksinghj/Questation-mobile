@@ -62,7 +62,7 @@ const Form = () => {
 
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.inputs}>
         <TextInput
           placeholder="328 + 10 / 2"
           style={styles.questionInput}
@@ -89,6 +89,9 @@ export default connect(null, { createQuestionSheet })(Form)
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+  },
+  inputs: {
+    marginBottom: 20,
   },
   questionInput: {
     borderColor: "rgba(158, 150, 150, 0.5)",

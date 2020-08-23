@@ -7,33 +7,30 @@ import { enterStudents } from "../state/actions"
 import QSButton from "../components/QSButton"
 import Sheet from "../components/Sheet"
 import NumberInput from "../components/NumberInput"
+import Textarea from "../components/Textarea"
 import font from "../constants/font"
 import colors from "../constants/colors"
 
 const ReviewSheetScreen = props => {
+  const dispatch = useDispatch()
   const navigation = useNavigation()
   const [numberOfStudents, setNumberOfStudents] = useState(10)
-
   const questionSheet = useSelector(state => state.questionReducer.questions)
-  // console.log("rqs", questionSheet)
-
-  const dispatch = useDispatch()
 
   const studentsHandler = students => {
     // TODO: only integers allowed ?
     setNumberOfStudents(students)
-    dispatch(enterStudents(numberOfStudents))
   }
 
   // confirm no. of students in store
   useEffect(() => {
-    console.log(props.students)
+    dispatch(enterStudents(numberOfStudents))
   }, [numberOfStudents])
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.container}>
-        <Text style={styles.textHeader}>Does this look right?</Text>
+        <Textarea texts={["Does this look right?"]} />
         <Sheet data={questionSheet} isAnswers={false} />
       </View>
       <NumberInput onInput={studentsHandler} />
@@ -45,23 +42,11 @@ const ReviewSheetScreen = props => {
   )
 }
 
-export default connect(mapStateToProps, { enterStudents })(ReviewSheetScreen)
-
-const mapStateToProps = state => {
-  return {
-    questions: state.questionReducer.questions,
-    students: state.studentsReducer, // number not in store prehaps ?
-  }
-}
+export default connect(null, { enterStudents })(ReviewSheetScreen)
 
 const styles = StyleSheet.create({
   container: {
     padding: 10,
     backgroundColor: colors.background,
-  },
-  textHeader: {
-    textAlign: "center",
-    marginVertical: 15,
-    fontSize: font.fontSizes.headerText,
   },
 })

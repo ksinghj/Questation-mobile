@@ -1,25 +1,21 @@
 import React from "react"
-import { connect } from "react-redux"
+import { useSelector, connect, useDispatch } from "react-redux"
 import { Text, StyleSheet, View } from "react-native"
 import font from "../constants/font"
 import colors from "../constants/colors"
 
 const QuestionSheets = props => {
+  const students = useSelector(state => state.studentsReducer)
+
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Class Sheets</Text>
-      <Text style={styles.header}>{props.students}</Text>
+      <Text style={styles.header}>Question Sheets</Text>
+      <Text style={styles.header}>{students}</Text>
     </View>
   )
 }
 
-export default connect(mapStateToProps, {})(QuestionSheets)
-
-const mapStateToProps = state => {
-  return {
-    students: state.studentsReducer, // number not in store prehaps ?
-  }
-}
+export default connect(null, {})(QuestionSheets)
 
 const styles = StyleSheet.create({
   container: {
