@@ -14,8 +14,10 @@ const Sheet = ({ data, sheetNumber, isAnswers }) => {
             <Text style={styles.header}>Sheet {sheetNumber}</Text>
             <View style={styles.questions}>
               {arrToMap.map((q, index) => {
+                // why does add style={styles.line} to the View with key break the layout ? q's not rendering with style to View ?
                 return (
                   <View key={index + 1}>
+                    <Text style={styles.qNumber}>{index + 1}.</Text>
                     <Text style={styles.question}>{q}</Text>
                   </View>
                 )
