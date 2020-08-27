@@ -12,7 +12,7 @@ const QuestionSheets = props => {
   const renderSheets = () => {
     console.log("classAll", classAll)
     return classAll.map((q, index) => {
-      return <Sheet data={q} sheetNumber={index} isAnswers={false} />
+      return <Sheet data={q} sheetNumber={index + 1} isAnswers={false} />
     })
   }
 
