@@ -10,7 +10,7 @@ const QuestionSheets = props => {
   const students = useSelector(state => state.studentsReducer)
   const classAll = useSelector(state => state.classReducer)
 
-  // number of students to map for a Sheet
+  // number of students to map for FlatList data
   let studentsNumberAsArr = new Array(students)
 
   const renderSheet = () => {
@@ -23,8 +23,9 @@ const QuestionSheets = props => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Question Sheets</Text>
-      <Text style={styles.header}>{students}</Text>
+      <Text style={styles.header}>
+        Unique question sheets for the {students} students in your class.
+      </Text>
       <FlatList data={studentsNumberAsArr} renderItem={renderSheet} ref={scrollTopRef} />
       <QSButton
         style={{ marginHorizontal: 50, marginTop: 10 }}
@@ -44,5 +45,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     paddingVertical: 20,
     paddingBottom: 100,
+  },
+  header: {
+    textAlign: "center",
+    fontSize: font.fontSizes.headerText,
+    marginHorizontal: 20,
   },
 })

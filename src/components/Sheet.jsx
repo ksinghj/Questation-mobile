@@ -6,7 +6,7 @@ import colors from "../constants/colors"
 const Sheet = ({ data, sheetNumber, isAnswers }) => {
   if (!isAnswers) {
     let arrToMap = Object.values(data)
-    console.log("arrToMap", arrToMap)
+
     return (
       <View style={styles.container}>
         <View style={styles.sheet}>
