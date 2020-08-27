@@ -27,6 +27,7 @@ const QuestionSheets = props => {
       <Text style={styles.header}>{students}</Text>
       <FlatList data={studentsNumberAsArr} renderItem={renderSheet} ref={scrollTopRef} />
       <QSButton
+        style={{ marginHorizontal: 50, marginTop: 10 }}
         onPressFunction={() => {
           scrollTopRef.current.scrollToOffset({ offset: 0, animated: true })
         }}
