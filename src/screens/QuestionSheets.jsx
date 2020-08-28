@@ -33,6 +33,7 @@ const QuestionSheets = props => {
         data={studentsNumberAsArr}
         renderItem={renderSheet}
         ref={scrollTopRef}
+        // keyExtractor={item => item} // TODO: list console warnings
       />
       <View style={styles.buttons}>
         <QSButton
