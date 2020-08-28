@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   sheetList: {
-    height: "93.5%",
+    height: "93%",
   },
   buttons: {
     display: "flex",
